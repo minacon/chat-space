@@ -27,3 +27,11 @@
           2019/06/27(Thu) 20:02:35
       .message__text
         ねむい〜
+  .form
+    = form_for '', html:{class: "new-message"} do |f|
+      .input-box
+        = f.text_field:message, placeholder: "type a message", class: "input-box__text"
+        %label.image-label{for:"message_image"}
+          %i.fa.fa-image
+            = f.file_field:image, class:"image-label__input", id: "message_image"
+      = f.submit "Send", class: "submit-btn"
