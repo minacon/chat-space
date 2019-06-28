@@ -26,13 +26,13 @@
         list-style: none;
         &__edit-user {
           margin-left: 0.3rem;
-          a {
+          &__edit-btn {
             color: #ffffff;
           }
         }
         &__new-group {
           margin-left: 0.3rem;
-          a {
+          &__cog-btn {
             color: #ffffff;
           }
         }
@@ -43,18 +43,21 @@
       background-color: #2f3e51;
       padding: 20px 20px 0;
       overflow: scroll;
-      .group {
-        margin: 0 0 40px 0;
-        color:#ffffff;
-        font-weight: bold;
-        &__group-name {
-          font-size: 15px;
-          margin: 0 0 5px 0;
-        }
-        &__group-message {
-          font-size: 11px;
-        }
+      &__box {
+        text-decoration: none;
       }
+        .group {
+          margin: 0 0 40px 0;
+          color:#ffffff;
+          font-weight: bold;
+          &__group-name {
+            font-size: 15px;
+            margin: 0 0 5px 0;
+          }
+          &__group-message {
+            font-size: 11px;
+          }
+        }
     }
   }
 
