@@ -1,0 +1,18 @@
+.chat-side
+  .side-header
+    %p.side-heder__user-name
+      minako
+    %ul.user-menu
+      %li.user-menu__edit-user
+        = link_to "#", {class: "user-menu__edit-user__edit-btn"} do
+          %i.fa.fa-edit
+      %li.user-menu__new-group
+        = link_to "#", {class: "user-menu__new-group__cog-btn"} do
+          %i.fa.fa-cog
+  .groups
+    = link_to "#", {class: "groups__box"} do
+      .group
+        %p.group__group-name
+          グループA
+        %p.group__group-message
+          hi
