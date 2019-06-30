@@ -10,9 +10,10 @@
         = link_to edit_user_path(current_user), {class: "user-menu__new-group__cog-btn"} do
           %i.fa.fa-cog
   .groups
-    = link_to "#", {class: "groups__box"} do
+    - current_user.groups.each do |group|
       .group
-        %p.group__group-name
-          グループA
-        %p.group__group-message
-          hi
+        = link_to group_messages_path(group), {class: "groups__box"} do
+          %p.group__group-name
+            =group.name
+          %p.group__group-message
+            メッセージはまだありません
