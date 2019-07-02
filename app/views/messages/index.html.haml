@@ -1,3 +1,24 @@
 .wrapper
   = render 'chatside'
-  = render 'chatmain'
+  .chat-main
+    .main-header
+      .current-group
+        %h2.current-group__name
+          = @group.name
+        %ul.member-list
+          Menber :
+          %li.member-list__member
+          minako
+      = link_to edit_group_path(@group), {class: "edit"} do
+        .main-header__edit-btn
+          Edit
+    .messages
+      = render @messages
+    .form
+      = form_for [@group, @message], html:{class: "new-message"} do |f|
+        .input-box
+          = f.text_field:body, placeholder: "type a message", class: "input-box__text"
+          %label.image-label{for:"message_image"}
+            %i.fa.fa-image
+              = f.file_field:image, class:"image-label__input", id: "message_image"
+        = f.submit "Send", class: "submit-btn"
