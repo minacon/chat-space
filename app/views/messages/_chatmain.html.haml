@@ -6,7 +6,7 @@
       %ul.member-list
         Menber :
         %li.member-list__member
-        minako
+          minako
     = link_to edit_group_path(@group), {class: "edit"} do
       .main-header__edit-btn
         Edit
@@ -19,18 +19,10 @@
           2019/06/27(Thu) 10:02:35
       .message__text
         おはよう！
-    .message
-      .upper-info
-        .upper-info__user
-          minako
-        .upper-info__date
-          2019/06/27(Thu) 20:02:35
-      .message__text
-        ねむい〜
   .form
-    = form_for '', html:{class: "new-message"} do |f|
+    = form_for [@group, @message], html:{class: "new-message"} do |f|
       .input-box
-        = f.text_field:message, placeholder: "type a message", class: "input-box__text"
+        = f.text_field:body, placeholder: "type a message", class: "input-box__text"
         %label.image-label{for:"message_image"}
           %i.fa.fa-image
             = f.file_field:image, class:"image-label__input", id: "message_image"
