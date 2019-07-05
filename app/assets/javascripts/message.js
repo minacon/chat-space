@@ -2,8 +2,6 @@ $(function() {
   function buildHTML(post){
     var body = post.body? `${post.body}`:"";
     var image = post.image? `${post.image}`:"";
-    console.log(post.image)
-    console.log(image)
     var html = `<div class="message">
                 <div class="upper-info">
                 <div class="upper-info__user">
