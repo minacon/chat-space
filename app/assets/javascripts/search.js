@@ -57,7 +57,6 @@ $(document).on("turbolinks:load",function() {
     $(this).parent().remove();
     var id = $(this).data('user-id')
     var name = $(this).data('user-name')
-    console.log(id,name)
     memberHtml(id,name)
     });
 

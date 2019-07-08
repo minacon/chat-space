@@ -2,7 +2,7 @@ $(function() {
   function buildHTML(post){
     var body = post.body? `${post.body}`:"";
     var image = post.image? `${post.image}`:"";
-    var html = `<div class="message">
+    var html = `<div class="message" data-id=${post.id}>
                 <div class="upper-info">
                 <div class="upper-info__user">
                 ${post.user_name}
@@ -46,4 +46,27 @@ $(function() {
       alert('メッセージを入力してください');
     })
   }); 
+
+
+  var reloadMessages = function() {
+    var last_message_id = $('.message:last').data('id')
+    $.ajax({
+      url: 'api/messages',
+      type: 'GET',
+      dataType: 'json',
+      data: { id: last_message_id }
+    })
+    .done(function(messages) {
+      var insertHTML = '';
+      $.each(messages, function(i, message){
+        insertHTML = buildHTML(message);
+        $('.messages').append(insertHTML)
+        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
+      })
+    })
+    .fail(function() {
+      alert('自動更新に失敗しました');
+    });
+  };
+  setInterval(reloadMessages, 5000);
 });
