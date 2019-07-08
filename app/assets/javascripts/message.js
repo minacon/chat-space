@@ -2,7 +2,6 @@ $(function() {
   function buildHTML(post){
     var body = post.body? `${post.body}`:"";
     var image = post.image? `${post.image}`:"";
-    console.log(post);
     var html = `<div class="message" data-id=${post.id}>
                 <div class="upper-info">
                 <div class="upper-info__user">
