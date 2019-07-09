@@ -1,4 +1,4 @@
-$(function() {
+$(document).on("turbolinks:load",function() {
   function buildHTML(post){
     var body = post.body? `${post.body}`:"";
     var image = post.image? `${post.image}`:"";
