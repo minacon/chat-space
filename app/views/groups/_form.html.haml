@@ -25,9 +25,15 @@
       #chat-group-users
         .chat-group-user.clearfix
           .chat-group-user__name
-            - @group.users.each do |member|
+            = current_user.name
+        -@group.users.each do |member|
+          -if member.name != current_user.name
+            .chat-group-user.clearfix.js-chat-member#chat-group-user-8
               = f.hidden_field :user_ids, value:member.id, name: 'group[user_ids][]'
-              =member.name
+              %p.chat-group-user__name
+                = member.name
+              .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn
+                削除
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
