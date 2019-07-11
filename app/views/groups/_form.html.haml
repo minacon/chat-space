@@ -26,6 +26,7 @@
         .chat-group-user.clearfix
           .chat-group-user__name
             = current_user.name
+            = f.hidden_field :user_ids, value: current_user.id, name: 'group[user_ids][]'
         -@group.users.each do |member|
           -if member.name != current_user.name
             .chat-group-user.clearfix.js-chat-member#chat-group-user-8
