@@ -36,16 +36,17 @@ $(document).on("turbolinks:load",function() {
     })
 
     .done(function(post){
-      html = buildHTML(post);
+      var html = buildHTML(post);
       $('.messages').append(html)
       $('#new_message')[0].reset();
       $('.submit-btn').prop('disabled', false); 
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
+      $('.group_id-' + post.group_id ).text(post.body)
     })
     .fail(function(){
       alert('メッセージを入力してください');
     })
-  }); 
+  });
 
 
   var reloadMessages = function() {
@@ -63,6 +64,7 @@ $(document).on("turbolinks:load",function() {
           insertHTML = buildHTML(message);
           $('.messages').append(insertHTML)
           $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
+          
         })
       })
       .fail(function() {
